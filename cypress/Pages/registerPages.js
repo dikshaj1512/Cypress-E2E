@@ -1,0 +1,39 @@
+ export class registerPage{
+    weblocators={
+        firstName:'#input-firstname',
+        LastName:'#input-lastname',
+        Email:'#input-email',
+        Telephone:'#input-telephone',
+        password:'#input-password',
+        confirmPassword:'#input-confirm',
+        policyCheckbox:'input[type="checkbox"]',
+        continue:'.btn.btn-primary'
+
+    }
+    openURL(){
+        cy.visit(Cypress.env('URL'))
+    }
+    enterFirstName(FName){
+        cy.get(this.weblocators.firstName).type(FName)
+    }
+    enterLastName(LName){
+        cy.get(this.weblocators.LastName).type(LName)
+    }
+    enteremail(Ename){
+        cy.get(this.weblocators.Email).type(Ename)
+    }
+    enterTelephone(TName){
+        cy.get(this.weblocators.Telephone).type(TName)
+    }
+    enterPassword(PName){
+        cy.get(this.weblocators.password).type(PName)
+        cy.get(this.weblocators.confirmPassword).type(PName)
+
+    }
+    selectCheckBox(){
+        cy.get(this.weblocators.policyCheckbox).check()
+    }
+    clickOnContinue(){
+        cy.get(this.weblocators.continue).click()
+    }
+}
